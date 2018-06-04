@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ListView
+            android:id="@+id/cun_list"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/mid_color"
+            android:divider="@color/divider_color"
+            android:dividerHeight="@dimen/dp1"/>
+
+        <ListView
+            android:id="@+id/guan_list"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/divider_color"
+            android:divider="@color/divider_color"
+            android:dividerHeight="@dimen/dp1"/>
+
+
+        <ListView
+            android:id="@+id/baojie_list"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:divider="@color/divider_color"
+            android:dividerHeight="@dimen/dp1"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bt_sure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp22"
+        android:layout_marginRight="@dimen/dp22"
+        android:background="@drawable/bg_btn_login"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/dp5"
+        android:text="确定"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+</LinearLayout>

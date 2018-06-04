@@ -1,0 +1,5 @@
+<resources>
+    <!--分类智能考核-->
+    <string name="app_name">分类智能考核</string>
+    <item name="item_image_key" type="id" />
+</resources>

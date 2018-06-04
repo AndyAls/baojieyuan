@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/dp5"
+    android:paddingRight="@dimen/dp5">
+
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dp15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="户主信息:"
+            android:textSize="@dimen/sp18"
+            android:textColor="@color/text_color_normal"/>
+
+        <TextView
+            android:id="@+id/tv_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="户主信息:"
+            android:layout_marginLeft="@dimen/dp5"
+            android:textSize="@dimen/sp16"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dp15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户地址:"
+            android:textSize="@dimen/sp18"
+            android:textColor="@color/text_color_normal"/>
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="户主信息:"
+            android:layout_marginLeft="@dimen/dp5"
+            android:textSize="@dimen/sp16"
+            />
+    </LinearLayout>
+    <TextView
+        android:layout_marginTop="@dimen/dp15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_color_normal"
+        android:textSize="@dimen/sp18"
+        android:text="备注:"/>
+
+    <EditText
+        android:id="@+id/et_content"
+        android:textSize="@dimen/sp16"
+        android:textColor="@color/text_color_normal"
+        android:layout_marginTop="@dimen/dp15"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp200"
+        android:gravity="top|start"
+        android:padding="@dimen/dp10"
+        android:background="@drawable/bg_pic_save"/>
+    <LinearLayout
+        android:layout_marginTop="@dimen/dp20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="拍照:"
+            android:textSize="@dimen/sp18"
+            android:textColor="@color/text_color_normal"/>
+
+        <com.qlckh.purifier.view.PicGridView
+            android:id="@+id/picItems"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp15"
+            android:layout_marginRight="@dimen/dp20"
+            android:background="@color/white"
+            android:paddingLeft="@dimen/dp7">
+
+        </com.qlckh.purifier.view.PicGridView>
+    </LinearLayout>
+    <Button
+        android:id="@+id/bt_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp30"
+        android:background="@drawable/bg_btn_login"
+        android:gravity="center"
+        android:text="提交"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+</LinearLayout>

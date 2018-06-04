@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".common.SelectActivity3">
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <ListView
+            android:id="@+id/cun_list"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:dividerHeight="@dimen/dp1"
+            android:divider="@color/divider_color"
+            android:background="@color/mid_color"
+            android:layout_height="match_parent"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bt_sure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp22"
+        android:layout_marginRight="@dimen/dp22"
+        android:background="@drawable/bg_btn_login"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/dp5"
+        android:text="确定"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+
+</LinearLayout>

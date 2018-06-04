@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/dp12">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="处理情况:"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_content"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp200"
+        android:layout_marginTop="@dimen/dp10"
+        android:background="@drawable/bg_pic_save"
+        android:gravity="top|start"
+        android:padding="@dimen/dp10"
+        android:textColor="@color/text_color_normal"
+        android:textSize="16sp" />
+
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dp20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="拍照:"
+            android:textSize="@dimen/sp18"
+            android:textColor="@color/text_color_normal"/>
+
+        <com.qlckh.purifier.view.PicGridView
+            android:id="@+id/picItems"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp15"
+            android:layout_marginRight="@dimen/dp20"
+            android:background="@color/white"
+            android:paddingLeft="@dimen/dp7">
+
+        </com.qlckh.purifier.view.PicGridView>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/sumit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/bg_btn_login"
+        android:gravity="center"
+        android:text="提交"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+</LinearLayout>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/dp5"
+    android:paddingRight="@dimen/dp5">
+
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dp15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="户主信息:"
+            android:textSize="@dimen/sp18"
+            android:textColor="@color/text_color_normal"/>
+
+        <TextView
+            android:id="@+id/tv_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="户主信息:"
+            android:layout_marginLeft="@dimen/dp5"
+            android:textSize="@dimen/sp16"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dp15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户地址:"
+            android:textSize="@dimen/sp18"
+            android:textColor="@color/text_color_normal"/>
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="户主信息:"
+            android:layout_marginLeft="@dimen/dp5"
+            android:textSize="@dimen/sp16"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dp15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="环境卫生:"
+            android:textSize="@dimen/sp18"
+            android:textColor="@color/text_color_normal"/>
+
+        <RadioGroup
+            android:id="@+id/rg_put"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_put_1"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_rg"
+                android:layout_height="wrap_content"
+                android:text="好"
+                android:layout_marginLeft="@dimen/dp15"
+                android:textSize="@dimen/sp16"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:padding="@dimen/dp5"
+                android:checked="true"
+                android:button="@null"  />
+            <RadioButton
+                android:id="@+id/rb_put_2"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:text="中(1分)"
+                android:layout_marginLeft="@dimen/dp15"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_rg"
+                android:visibility="invisible"
+                android:textSize="@dimen/sp16"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:enabled="false"
+                android:padding="@dimen/dp5"
+                android:button="@null"  />
+            <RadioButton
+                android:id="@+id/rb_put_3"
+                android:layout_width="0dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="差"
+                android:layout_marginLeft="@dimen/dp15"
+                android:background="@drawable/bg_rg"
+                android:textSize="@dimen/sp16"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:padding="@dimen/dp5"
+                android:button="@null"  />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dp15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="总分:"
+            android:textSize="@dimen/sp18"
+            android:textColor="@color/text_color_normal"/>
+
+        <TextView
+            android:id="@+id/tv_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="户主信息:"
+            android:layout_marginLeft="@dimen/dp5"
+            android:textColor="@color/red"
+            android:textStyle="bold"
+            android:textSize="@dimen/sp19"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="@dimen/dp15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="拍照:"
+            android:textSize="@dimen/sp18"
+            android:textColor="@color/text_color_normal"/>
+
+        <com.qlckh.purifier.view.PicGridView
+            android:id="@+id/picItems"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp15"
+            android:layout_marginRight="@dimen/dp20"
+            android:background="@color/white"
+            android:paddingLeft="@dimen/dp7">
+
+        </com.qlckh.purifier.view.PicGridView>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/bt_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp22"
+        android:layout_marginRight="@dimen/dp22"
+        android:layout_marginTop="@dimen/dp20"
+        android:background="@drawable/bg_btn_login"
+        android:gravity="center"
+        android:text="提交"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+</LinearLayout>

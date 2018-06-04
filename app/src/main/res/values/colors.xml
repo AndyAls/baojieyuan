@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="bg_item_pressed_default">#20000005</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000</color>
+    <color name="bg_theme_color">#eff4f7</color>
+    <color name="comm_header_color">#0099FF</color>
+    <color name="text_blue_color">#598ed0</color>
+    <color name="dark_green">#00bd96</color>
+    <color name="text_color_hint">#999999</color>
+    <color name="line_color">#c8f0ecec</color>
+    <color name="text_color_normal">#1a1a1a</color>
+    <color name="enable_color">#4a4848</color>
+    <color name="stroke">#c8c7cc</color>
+    <color name="red">#ff0000</color>
+    <color name="bg_checked">#5de342</color>
+    <color name="select_blue">#1778f1</color>
+    <color name="divider_color">#dff5f0</color>
+    <color name="mid_color">#66e2c6</color>
+    <color name="status_red">#ff515c</color>
+    <color name="status_orange">#ff9920</color>
+    <color name="status_green">#02ca47</color>
+</resources>

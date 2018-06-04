@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:baselineAligned="false">
+    
+    <ListView
+        android:id="@+id/cun_list"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:dividerHeight="@dimen/dp1"
+        android:divider="@color/divider_color"
+        android:background="@color/mid_color"
+        android:layout_height="match_parent">
+    </ListView>
+
+    <ListView
+        android:id="@+id/guan_list"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:dividerHeight="@dimen/dp1"
+        android:divider="@color/divider_color"
+        android:background="@color/divider_color"
+        android:layout_height="match_parent">
+    </ListView>
+
+
+    <ListView
+        android:id="@+id/baojie_list"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:dividerHeight="@dimen/dp1"
+        android:divider="@color/divider_color"
+        android:background="@color/white"
+        android:layout_height="match_parent">
+    </ListView>
+</LinearLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/dp120"
+    android:layout_height="@dimen/dp120"
+    android:orientation="vertical"
+    android:background="@drawable/bg_selector_white_default"
+    android:layout_gravity="center"
+    android:padding="@dimen/dp2"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <ImageView
+        android:layout_width="@dimen/dp60"
+        android:layout_height="@dimen/dp60"
+        android:layout_centerInParent="true"
+        android:src="@drawable/check_work_icon"
+        android:id="@+id/icon"/>
+        <TextView
+            android:id="@+id/tv_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="1"
+            android:paddingLeft="@dimen/dp4"
+            android:paddingRight="@dimen/dp4"
+            android:gravity="center"
+            android:visibility="gone"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_badge"
+            android:layout_marginRight="@dimen/dp6"/>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:singleLine="true"
+        android:layout_marginTop="@dimen/dp8"
+        android:text="考勤打卡"/>
+</LinearLayout>
