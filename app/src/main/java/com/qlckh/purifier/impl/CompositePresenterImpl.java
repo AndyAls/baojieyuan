@@ -2,6 +2,7 @@ package com.qlckh.purifier.impl;
 
 import com.qlckh.purifier.api.ApiService;
 import com.qlckh.purifier.dao.Comm2Dao;
+import com.qlckh.purifier.dao.CommonDao;
 import com.qlckh.purifier.dao.HomeDao;
 import com.qlckh.purifier.http.RxHttpUtils;
 import com.qlckh.purifier.http.interceptor.Transformer;
@@ -9,6 +10,9 @@ import com.qlckh.purifier.http.observer.CommonObserver;
 import com.qlckh.purifier.presenter.CompositePresenter;
 import com.qlckh.purifier.presenter.CompositeView;
 import com.qlckh.purifier.user.UserConfig;
+import com.qlckh.purifier.usercase.ScanEvent;
+
+import org.greenrobot.eventbus.EventBus;
 
 /**
  * @author Andy
@@ -40,6 +44,25 @@ public class CompositePresenterImpl implements CompositePresenter {
                         mView.onSuccess(comm2Dao);
                         mView.dissmissLoading();
 
+                    }
+                });
+    }
+
+    @Override
+    public void addScan(String id) {
+        RxHttpUtils.createApi(ApiService.class)
+                .addScan(id)
+                .compose(Transformer.switchSchedulers())
+                .subscribe(new CommonObserver<CommonDao>() {
+                    @Override
+                    protected void onError(String errorMsg) {
+                        mView.showError(errorMsg);
+                    }
+
+                    @Override
+                    protected void onSuccess(CommonDao dao) {
+                        EventBus.getDefault().post(new ScanEvent());
+                    mView.onAddScanedSuccess();
                     }
                 });
     }

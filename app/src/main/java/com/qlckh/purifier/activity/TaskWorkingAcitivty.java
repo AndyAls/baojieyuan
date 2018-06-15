@@ -63,6 +63,11 @@ public class TaskWorkingAcitivty extends BaseMvpActivity<TaskWorkingPresenter> i
     }
 
     @Override
+    protected boolean isSetFondSize() {
+        return true;
+    }
+
+    @Override
     public void initView() {
         if (UserConfig.getType()==3){
             setTitle("任务反馈");

@@ -87,7 +87,7 @@ public class MainPresenterImpl implements MainPresenter {
             case 2:
 
                 titles = new String[]{
-                        "下发任务","事件处理","我的消息","桶报废","意见反馈","设置"
+                        "下发任务","事件处理","我的消息","桶报废","意见反馈","保洁员管理","设置"
                 };
                 icons = new int[]{
                         R.drawable.order_icon,
@@ -95,22 +95,24 @@ public class MainPresenterImpl implements MainPresenter {
                         R.drawable.message_icon,
                         R.drawable.scrap_icon,
                         R.drawable.feedback_icon,
+                        R.drawable.baojie_icon,
                         R.drawable.setting_icon,
                 };
-                ids=new int[]{7,2,5,3,4,6};
+                ids=new int[]{7,2,5,3,4,11,6};
                 break;
             case 3:
                 titles = new String[]{
-                        "下发任务","即时通讯","任务反馈","桶报废","设置"
+                        "下发任务","即时通讯","任务反馈","桶报废","保洁员管理","设置"
                 };
                 icons = new int[]{
                         R.drawable.order_icon,
                         R.drawable.send_icon,
                         R.drawable.feedback_icon,
                         R.drawable.scrap_icon,
+                        R.drawable.baojie_icon,
                         R.drawable.setting_icon,
                 };
-                ids=new int[]{7,8,9,3,6};
+                ids=new int[]{7,8,9,3,11,6};
                 break;
             default:
         }

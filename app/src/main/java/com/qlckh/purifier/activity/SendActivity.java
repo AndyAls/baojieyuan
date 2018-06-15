@@ -59,6 +59,11 @@ public class SendActivity extends BaseMvpActivity<SendPresenter> implements Send
     }
 
     @Override
+    protected boolean isSetFondSize() {
+        return true;
+    }
+
+    @Override
     public void onSuccess(CommonDao dao) {
 
         finish();

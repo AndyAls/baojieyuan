@@ -156,6 +156,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="18sp"
+            android:textColor="@color/text_color_normal"
             android:background="@drawable/bg_selector_white_default_with_shape"
             android:text="审核通过" />
 
@@ -165,6 +167,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp25"
             android:layout_weight="1"
+            android:textSize="18sp"
+            android:textColor="@color/status_red"
             android:background="@drawable/bg_selector_white_default_with_shape"
             android:text="审核不通过" />
     </LinearLayout>

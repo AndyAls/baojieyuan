@@ -1,10 +1,13 @@
 package com.qlckh.purifier.base;
 
 import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -20,7 +23,11 @@ import android.widget.TextView;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.qlckh.purifier.R;
+import com.qlckh.purifier.activity.SetingFontActivity;
 import com.qlckh.purifier.common.IToast;
+import com.qlckh.purifier.common.XLog;
+import com.qlckh.purifier.utils.ResourceUtils;
+import com.qlckh.purifier.utils.SpUtils;
 import com.r0adkll.slidr.Slidr;
 import com.r0adkll.slidr.model.SlidrConfig;
 import com.r0adkll.slidr.model.SlidrPosition;
@@ -35,7 +42,9 @@ import butterknife.Unbinder;
  * Desc:  基类Activity
  */
 public abstract class BaseActivity extends AppCompatActivity implements IBaseView {
+    private static final String TAG = "BaseActivity";
     //<editor-fold desc="控件初始化">
+
     @BindView(R.id.ib_back)
     protected ImageButton ibBack;
      @BindView(R.id.title)
@@ -47,6 +56,9 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
     protected FrameLayout flContainer;
     private Unbinder unbinder;
     protected BaseActivity mActivity;
+    protected float textsize;
+    public static final String TEXT_SIZE = "TEXT_SIZE";
+
     //</editor-fold>
 
     //<editor-fold desc="基类初始化">
@@ -61,6 +73,8 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
         initView();
         initDate();
         initSlidr();
+
+        XLog.e(TAG,"onCreate");
 
     }
     //</editor-fold>
@@ -176,4 +190,26 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
         return TextUtils.isEmpty(msg)||"".equals(msg)||"null".equals(msg);
     }
     //</editor-fold>
+
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
+    @Override
+    protected void attachBaseContext(Context newBase) {
+
+        float v = SpUtils.getFloatParam(newBase, TEXT_SIZE, -0.1f);
+        if (v>0.0f){
+            textsize=1.0f+v;
+        }else {
+            textsize=1.0f;
+        }
+        if (isSetFondSize()){
+            super.attachBaseContext(ResourceUtils.configWrap(newBase,textsize));
+        }else {
+            super.attachBaseContext(newBase);
+        }
+
+        XLog.e(TAG,"attachBaseContext");
+
+    }
+
+    protected abstract boolean isSetFondSize();
 }

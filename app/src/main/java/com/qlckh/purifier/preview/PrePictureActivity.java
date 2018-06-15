@@ -39,7 +39,6 @@ public class PrePictureActivity extends AppCompatActivity {
 
 
     private ViewPager mViewPager;
-    private PhotoPagerAdapter mPhotoPagerAdapter;
 
 
     private ArrayList<ImgInfo> mImgInfos = new ArrayList<>();
@@ -110,7 +109,7 @@ public class PrePictureActivity extends AppCompatActivity {
     }
 
     private void initViewpager() {
-        mPhotoPagerAdapter = new PhotoPagerAdapter(getSupportFragmentManager());
+        PhotoPagerAdapter mPhotoPagerAdapter = new PhotoPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(mPhotoPagerAdapter);
         mViewPager.setCurrentItem(mCurrentIndex);
         mViewPager.setOffscreenPageLimit(3);

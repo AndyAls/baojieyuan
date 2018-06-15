@@ -12,4 +12,5 @@ public interface CompositeView extends IBaseView{
     void showLoading();
     void dissmissLoading();
     void onSuccess(Comm2Dao dao);
+    void onAddScanedSuccess();
 }

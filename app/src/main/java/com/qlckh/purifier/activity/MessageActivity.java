@@ -66,6 +66,12 @@ public class MessageActivity extends BaseMvpActivity<MessagePresenter> implement
     }
 
     @Override
+    protected boolean isSetFondSize() {
+
+        return true;
+    }
+
+    @Override
     public void initView() {
 
 

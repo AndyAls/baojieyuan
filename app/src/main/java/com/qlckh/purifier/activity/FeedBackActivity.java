@@ -67,6 +67,11 @@ public class FeedBackActivity extends BaseMvpActivity<FeedPresenter> implements 
     }
 
     @Override
+    protected boolean isSetFondSize() {
+        return true;
+    }
+
+    @Override
     public void onSuccess(CommonDao dao) {
 
         finish();
@@ -107,12 +112,11 @@ public class FeedBackActivity extends BaseMvpActivity<FeedPresenter> implements 
         RxHttpUtils.cancelAllRequest();
     }
 
-    // TODO: 2018/5/31 接口加上图片功能 图片还没改
     @OnClick(R.id.sumit)
     public void onViewClicked() {
         if (checkData()) {
             if (isDone) {
-                mPresenter.sumbit(etContent.getText().toString());
+                mPresenter.sumbit(etContent.getText().toString(),imgPath);
             } else {
                 showShort("等待图片上传,请稍后重试");
             }

@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import com.qlckh.purifier.R;
+import com.qlckh.purifier.common.XLog;
 
 import uk.co.senab.photoview.PhotoViewAttacher;
 /**
@@ -144,14 +145,15 @@ public class PrePictureFragment extends Fragment {
         loading = view.findViewById(R.id.loading);
         imageView = view.findViewById(R.id.photoView);
         rootView = view.findViewById(R.id.rootView);
-        rootView.setDrawingCacheEnabled(false);
-        imageView.setDrawingCacheEnabled(false);
+        rootView.setDrawingCacheEnabled(true);
+        imageView.setDrawingCacheEnabled(true);
         mySimpleTarget = new MySimpleTarget<Bitmap>() {
             @Override
             public void onResourceReady(Bitmap bitmap) {
                 if (imageView.getTag().toString().equals(viewInfo.getUrl())) {
                     imageView.setImageBitmap(bitmap);
                     loading.setVisibility(View.GONE);
+                    XLog.e(TAG,"onResourceReady",System.currentTimeMillis());
                 }
             }
 
@@ -166,11 +168,13 @@ public class PrePictureFragment extends Fragment {
             @Override
             public void onLoadStarted() {
                 loading.setVisibility(View.VISIBLE);
+                XLog.e(TAG,"onLoadStarted",System.currentTimeMillis());
             }
 
             @Override
             public void onLoadCancled() {
                 loading.setVisibility(View.GONE);
+
             }
         };
     }
@@ -209,6 +213,9 @@ public class PrePictureFragment extends Fragment {
             imageView.transformIn(null);
             imageView.transformOut(null);
             imageView.setOnLongClickListener(null);
+            rootView.destroyDrawingCache();
+            imageView.destroyDrawingCache();
+
             imageView = null;
             rootView = null;
             isCurrentIndex = false;

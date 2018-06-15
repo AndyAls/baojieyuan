@@ -76,6 +76,11 @@ public class ScrapActivity extends BaseMvpActivity<ScrapPresenter> implements Co
     }
 
     @Override
+    protected boolean isSetFondSize() {
+        return true;
+    }
+
+    @Override
     public void onSuccess(CommonDao dao) {
         finish();
     }
@@ -223,7 +228,7 @@ public class ScrapActivity extends BaseMvpActivity<ScrapPresenter> implements Co
 
         if (checkData()) {
             if (isDone) {
-                mPresenter.scrapSubmit(homeDao, etContent.getText().toString().trim(), userAddress);
+                mPresenter.scrapSubmit(homeDao, etContent.getText().toString().trim(), userAddress,imgPath);
             } else {
                 showShort("等待图片上传,请稍后重试");
             }

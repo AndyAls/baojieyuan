@@ -1,7 +1,9 @@
 package com.qlckh.purifier.activity;
 
 import android.content.Intent;
+import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.qlckh.purifier.R;
 import com.qlckh.purifier.base.BaseScanActivity;
@@ -27,6 +29,8 @@ public class Scrap1Activity extends BaseScanActivity {
     public static final String BAO_JIE_ACTION = "BAO_JIE_ACTION";
     @BindView(R.id.bt_scan)
     Button btScan;
+    @BindView(R.id.ll_scan)
+    LinearLayout llScan;
     private int scanMode;
     private boolean inContinuousShoot = false;
 
@@ -36,10 +40,16 @@ public class Scrap1Activity extends BaseScanActivity {
     }
 
     @Override
+    protected boolean isSetFondSize() {
+        return true;
+    }
+
+    @Override
     public void initView() {
 
         setTitle("扫一扫");
         goBack();
+        llScan.setVisibility(View.GONE);
         scanMode = mScannerManager.getScanMode();
         if (scanMode == ScannerManager.SCAN_KEY_HOLD_MODE) {
             btScan.setEnabled(false);

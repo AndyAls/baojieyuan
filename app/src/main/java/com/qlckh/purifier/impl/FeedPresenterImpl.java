@@ -19,11 +19,11 @@ public class FeedPresenterImpl implements FeedPresenter {
     private CommView mView;
 
     @Override
-    public void sumbit(String content) {
+    public void sumbit(String content,String img) {
 
         mView.showLoading();
         RxHttpUtils.createApi(ApiService.class)
-                .feedSubmit(UserConfig.getUserid(), UserConfig.getUserName(),content)
+                .feedSubmit(UserConfig.getUserid(), UserConfig.getUserName(),content,img)
                 .compose(Transformer.switchSchedulers())
                 .subscribe(new CommonObserver<CommonDao>() {
                     @Override

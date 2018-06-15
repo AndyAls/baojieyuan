@@ -69,6 +69,11 @@ public class EventHandActivity extends BaseMvpActivity<EventHandPresenter> imple
         return R.layout.activity_event_hand;
     }
 
+    @Override
+    protected boolean isSetFondSize() {
+        return true;
+    }
+
 
     @Override
     public void onSuccess(CommonDao dao) {

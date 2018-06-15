@@ -72,6 +72,11 @@ public class SelectActivity3 extends BaseMvpActivity<SelectPresenter> implements
     }
 
     @Override
+    protected boolean isSetFondSize() {
+        return true;
+    }
+
+    @Override
     public void initView() {
 
         setTitle("选择发送员");
@@ -106,7 +111,7 @@ public class SelectActivity3 extends BaseMvpActivity<SelectPresenter> implements
                 int column = position % 3;
                 outRect.left = column * spacing / 3;
                 outRect.right = spacing - (column + 1) * spacing / 3;
-                if (position >= 3) {
+                if (position >= 4) {
                     outRect.top = ScreenUtils.px2dp(SelectActivity3.this, 60);
                 }
             }

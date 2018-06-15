@@ -20,12 +20,12 @@ public class ScrapPresenterImpl implements ScrapPresenter {
     private CommView mView;
 
     @Override
-    public void scrapSubmit(HomeDao dao, String content,String address) {
+    public void scrapSubmit(HomeDao dao, String content,String address,String img) {
 
         mView.showLoading();
         RxHttpUtils.createApi(ApiService.class)
                 .scrapSubmit(Integer.parseInt(dao.getId()),dao.getUsername(),address,Integer.parseInt(dao.getCunid()),
-                        content, UserConfig.getUserid(),UserConfig.getUserName(),UserConfig.getType()-1)
+                        content, UserConfig.getUserid(),UserConfig.getUserName(),UserConfig.getType()-1,img)
                 .compose(Transformer.switchSchedulers())
                 .subscribe(new CommonObserver<Comm2Dao>() {
                     @Override

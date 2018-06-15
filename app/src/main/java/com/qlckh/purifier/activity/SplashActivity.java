@@ -33,6 +33,11 @@ public class SplashActivity extends BaseMvpActivity<LoginPresenter> implements L
     }
 
     @Override
+    protected boolean isSetFondSize() {
+        return true;
+    }
+
+    @Override
     public void initView() {
         header.setVisibility(View.GONE);
         if ((getIntent().getFlags() & Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT) != 0) {

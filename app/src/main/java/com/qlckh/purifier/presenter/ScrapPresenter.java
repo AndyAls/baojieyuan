@@ -10,5 +10,5 @@ import com.qlckh.purifier.dao.HomeDao;
  */
 public interface ScrapPresenter extends BasePresenter<CommView>{
 
-    void scrapSubmit(HomeDao dao,String content,String address);
+    void scrapSubmit(HomeDao dao,String content,String address,String img);
 }

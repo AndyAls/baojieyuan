@@ -11,4 +11,5 @@ import com.qlckh.purifier.dao.HomeDao;
 public interface CompositePresenter extends BasePresenter<CompositeView>{
 
     void sumbit(HomeDao dao,int categoryScore,int bucketScore,int putScore,int totalScore,String address,String tel,String imgs);
+    void addScan(String id);
 }

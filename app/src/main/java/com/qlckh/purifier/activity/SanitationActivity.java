@@ -95,6 +95,11 @@ public class SanitationActivity extends BaseMvpActivity<SanitationPresenter> imp
     }
 
     @Override
+    protected boolean isSetFondSize() {
+        return true;
+    }
+
+    @Override
     public void showLoading() {
         LoadingView.showLoading(this, "", false);
     }
@@ -107,6 +112,11 @@ public class SanitationActivity extends BaseMvpActivity<SanitationPresenter> imp
     @Override
     public void onSuccess(Comm2Dao dao) {
         finish();
+    }
+
+    @Override
+    public void onAddScanedSuccess() {
+
     }
 
     @Override

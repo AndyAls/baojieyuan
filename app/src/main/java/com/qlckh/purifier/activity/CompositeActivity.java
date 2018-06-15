@@ -44,6 +44,7 @@ import java.lang.ref.WeakReference;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 
@@ -99,6 +100,7 @@ public class CompositeActivity extends BaseMvpActivity<CompositePresenter> imple
     private List<String> picFilePathList = new ArrayList<>();
     private boolean isDone = true;
     private String imgPath = "";
+    private HomeDao homeDao;
 
     @Override
     protected CompositePresenter initPresenter() {
@@ -111,11 +113,16 @@ public class CompositeActivity extends BaseMvpActivity<CompositePresenter> imple
     }
 
     @Override
+    protected boolean isSetFondSize() {
+        return false;
+    }
+
+    @Override
     public void initView() {
         goBack();
         setTitle("综合评分");
         totalScore = categoryScore + bucketScore + putScore;
-        tvScore.setText(String.format("%d", totalScore));
+        tvScore.setText(String.format(Locale.SIMPLIFIED_CHINESE,"%d", totalScore));
         addListener();
 
     }
@@ -217,7 +224,7 @@ public class CompositeActivity extends BaseMvpActivity<CompositePresenter> imple
 
     @Override
     public void initDate() {
-        HomeDao homeDao = getIntent().getParcelableExtra(MarkActivity.HOME_DAO);
+        homeDao = getIntent().getParcelableExtra(MarkActivity.HOME_DAO);
         String username = homeDao.getUsername();
         tvHome.setText(username);
         String userAddress = MessageFormat.format("{0}{1}{2}{3}{4}",
@@ -243,6 +250,7 @@ public class CompositeActivity extends BaseMvpActivity<CompositePresenter> imple
     public void showError(String msg) {
 
         showShort(msg);
+        finish();
     }
 
     @Override
@@ -264,8 +272,14 @@ public class CompositeActivity extends BaseMvpActivity<CompositePresenter> imple
 
     @Override
     public void onSuccess(Comm2Dao dao) {
-        finish();
 
+        mPresenter.addScan(homeDao.getId());
+
+    }
+
+    @Override
+    public void onAddScanedSuccess() {
+        finish();
     }
 
     @Override

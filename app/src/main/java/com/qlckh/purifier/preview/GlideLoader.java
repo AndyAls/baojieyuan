@@ -13,17 +13,24 @@ import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.qlckh.purifier.R;
+import com.qlckh.purifier.common.GlideApp;
+
+import java.io.IOException;
+
+import okhttp3.Interceptor;
+import okhttp3.Request;
+import okhttp3.Response;
 
 /**
  * @author Andy
- * @date   2018/5/24 15:47
- * @link   {http://blog.csdn.net/andy_l1}
+ * @date 2018/5/24 15:47
+ * @link {http://blog.csdn.net/andy_l1}
  * Desc:   配置加载图片glide
  */
 public class GlideLoader implements IZoomMediaLoader {
 
     @Override
-    public void displayImage(@NonNull Fragment context, @NonNull String path, final@NonNull MySimpleTarget<Bitmap> simpleTarget) {
+    public void displayImage(@NonNull Fragment context, @NonNull String path, final @NonNull MySimpleTarget<Bitmap> simpleTarget) {
 
         RequestOptions requestOptions = new RequestOptions()
                 .centerCrop()
@@ -61,12 +68,12 @@ public class GlideLoader implements IZoomMediaLoader {
 
     @Override
     public void onStop(@NonNull Fragment context) {
-          Glide.with(context).onStop();
+        Glide.with(context).onStop();
 
     }
 
     @Override
     public void clearMemory(@NonNull Context c) {
-             Glide.get(c).clearMemory();
+        Glide.get(c).clearMemory();
     }
 }

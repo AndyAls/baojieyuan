@@ -120,7 +120,8 @@ public class HintDialog {
             public View getView(int position, View convertView, ViewGroup parent) {
                 if (null == convertView) {
                     convertView = context.getLayoutInflater().inflate(R.layout.item_dealer, parent, false);
-                    convertView.setClickable(false);//防止影响OnItemClickListener工作
+                    //防止影响OnItemClickListener工作
+                    convertView.setClickable(false);
                 }
                 TextView tvContent = (TextView) convertView.findViewById(R.id.tv_content);
                 tvContent.setText(datas[position]);

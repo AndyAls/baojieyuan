@@ -9,6 +9,6 @@ import com.qlckh.purifier.base.BasePresenter;
  */
 public interface FeedPresenter extends BasePresenter<CommView>{
 
-    void sumbit(String content);
+    void sumbit(String content,String img);
 
 }

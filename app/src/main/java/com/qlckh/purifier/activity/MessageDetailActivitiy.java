@@ -76,13 +76,17 @@ public class MessageDetailActivitiy extends BaseMvpActivity<MessageDetailPresent
     @BindView(R.id.tv_rich_content)
     XRichText tvRichContent;
     private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.SIMPLIFIED_CHINESE);
-    private ArrayList<ImgInfo> mImgs = new ArrayList<>();
     private EventListDao.EventDao eventDao;
     private int eventId = -1;
 
     @Override
     protected int getContentView() {
         return R.layout.activity_message_detail;
+    }
+
+    @Override
+    protected boolean isSetFondSize() {
+        return true;
     }
 
     @Override
@@ -221,6 +225,7 @@ public class MessageDetailActivitiy extends BaseMvpActivity<MessageDetailPresent
     private void initTaskView(EventListDao.EventDao eventDao) {
         eventId = eventDao.getId();
         ArrayList<String> picList = new ArrayList<>();
+        ArrayList<String> picList2 = new ArrayList<>();
         String image1 = eventDao.getImage1();
         if (!isEmpty(image1)) {
             String[] split = image1.split(",");
@@ -241,11 +246,10 @@ public class MessageDetailActivitiy extends BaseMvpActivity<MessageDetailPresent
             tvTaskTime.setText(String.format("处理时间:%s", format.format(Long.parseLong(eventDao.getSj_time()) * 1000)));
             if (!isEmpty(eventDao.getImage2())) {
                 String[] split = eventDao.getImage2().split(",");
-                picList.clear();
                 for (String aSplit : split) {
-                    picList.add(ApiService.BASE_URL + aSplit);
+                    picList2.add(ApiService.BASE_URL + aSplit);
                 }
-                setPicShowModule(picList, taskPicItems);
+                setPicShowModule(picList2, taskPicItems);
             }
         }
     }
@@ -267,6 +271,7 @@ public class MessageDetailActivitiy extends BaseMvpActivity<MessageDetailPresent
      * 设置标准照片
      */
     private void setPicShowModule(ArrayList<String> picUrlList, PicGridView picItems) {
+        ArrayList<ImgInfo> mImgs = new ArrayList<>();
         picItems.setColumNum(2);
         picItems.removeAllViews();
         mImgs.clear();
@@ -281,18 +286,15 @@ public class MessageDetailActivitiy extends BaseMvpActivity<MessageDetailPresent
             GlideApp.with(this).load(picUrlList.get(i)).into(iv);
             ImgInfo info = new ImgInfo();
             info.setUrl(picUrlList.get(i));
-            Rect rect = new Rect();
-            iv.getGlobalVisibleRect(rect);
-            info.setBounds(rect);
             mImgs.add(info);
             iv.setOnClickListener(v -> {
-                MessageDetailActivitiy.this.startPre(v, picItems);
+                MessageDetailActivitiy.this.startPre(v, picItems,mImgs);
             });
 
         }
     }
 
-    private void startPre(View v, PicGridView picItems) {
+    private void startPre(View v, PicGridView picItems,ArrayList<ImgInfo> mImgs) {
         int currentIndex = picItems.indexOfChild(v);
         for (int j = 0; j < mImgs.size(); j++) {
             Rect rect = new Rect();

@@ -149,7 +149,11 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements Main
                 case 9:
                     intent.setClass(MainActivity.this,TaskWorkingAcitivty.class);
                     break;
+                case 11:
+                    intent.setClass(MainActivity.this,PurifierManagerActivity.class);
+                    break;
                 default:
+
 
             }
             startActivity(intent);
@@ -289,5 +293,10 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements Main
         }
         return true;
 
+    }
+
+    @Override
+    protected boolean isSetFondSize() {
+        return false;
     }
 }

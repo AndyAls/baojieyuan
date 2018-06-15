@@ -16,6 +16,7 @@ import com.qlckh.purifier.impl.LoginPresenterImpl;
 import com.qlckh.purifier.presenter.LoginPresenter;
 import com.qlckh.purifier.user.UseDo;
 import com.qlckh.purifier.user.UserConfig;
+import com.qlckh.purifier.utils.NetworkUtils;
 import com.qlckh.purifier.utils.PhoneUtil;
 import com.qlckh.purifier.view.BottomDialog;
 import com.qlckh.purifier.view.LoadingView;
@@ -50,6 +51,11 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
     @Override
     protected int getContentView() {
         return R.layout.activity_login;
+    }
+
+    @Override
+    protected boolean isSetFondSize() {
+        return true;
     }
 
     @Override
@@ -212,6 +218,10 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
     }
 
     private boolean checkData() {
+        if (!NetworkUtils.isNetWorkAvailable()){
+            showShort("网络不可用,请设置网络");
+            return false;
+        }
         if (isEmpty(phoneEdit.getText().toString().trim())) {
             showShort("请输入用户名");
             return false;

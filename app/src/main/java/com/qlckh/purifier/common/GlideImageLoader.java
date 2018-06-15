@@ -19,12 +19,9 @@ public class GlideImageLoader extends ImageLoader {
 
         GlideApp.with(context)
                 .load(path)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
-                .skipMemoryCache(false)
                 .encodeFormat(Bitmap.CompressFormat.JPEG)
-                .error(R.drawable.error)
-                .placeholder(R.drawable.error)
                 .centerCrop()
+                .thumbnail(0.2f)
                 .into(imageView);
 
     }

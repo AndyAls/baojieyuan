@@ -72,6 +72,11 @@ public class SelectActivity2 extends BaseMvpActivity<SelectPresenter> implements
     }
 
     @Override
+    protected boolean isSetFondSize() {
+        return true;
+    }
+
+    @Override
     public void initView() {
 
         setTitle("选择发送人");

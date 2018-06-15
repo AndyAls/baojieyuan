@@ -80,6 +80,11 @@ public class OrderActivity extends BaseMvpActivity<OrderPresenter> implements Or
     }
 
     @Override
+    protected boolean isSetFondSize() {
+        return true;
+    }
+
+    @Override
     public void initView() {
         setTitle("下发任务");
         goBack();

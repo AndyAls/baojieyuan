@@ -33,6 +33,11 @@ public class EventActivity extends BaseActivity {
     }
 
     @Override
+    protected boolean isSetFondSize() {
+        return true;
+    }
+
+    @Override
     public void initView() {
         setTitle("事件处理");
         goBack();

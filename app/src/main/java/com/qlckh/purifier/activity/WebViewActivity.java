@@ -32,6 +32,11 @@ public class WebViewActivity extends BaseActivity{
         return R.layout.activity_web_view;
     }
 
+    @Override
+    protected boolean isSetFondSize() {
+        return true;
+    }
+
 
     @Override
     public void initView() {

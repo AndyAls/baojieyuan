@@ -4,11 +4,14 @@ import com.qlckh.purifier.dao.BannerDao;
 import com.qlckh.purifier.dao.BaojieDao;
 import com.qlckh.purifier.dao.Comm2Dao;
 import com.qlckh.purifier.dao.CommonDao;
+import com.qlckh.purifier.dao.CunListDao;
 import com.qlckh.purifier.dao.CuntryDao;
 import com.qlckh.purifier.dao.EventListDao;
 import com.qlckh.purifier.dao.GuanDao;
 import com.qlckh.purifier.dao.InMsgDao;
 import com.qlckh.purifier.dao.OutMessageDao;
+import com.qlckh.purifier.dao.ScanCount;
+import com.qlckh.purifier.dao.ScanListDao;
 import com.qlckh.purifier.user.UseDo;
 
 import java.util.List;
@@ -65,7 +68,8 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("index.php/index/index/add_suggest")
-    Observable<CommonDao> feedSubmit(@Field("userid")int userId, @Field("phone")String phone, @Field("content")String content);
+    Observable<CommonDao> feedSubmit(@Field("userid")int userId, @Field("phone")String phone, @Field("content")String content,
+                                     @Field("image")String img);
 
 
 
@@ -74,7 +78,8 @@ public interface ApiService {
     Observable<Comm2Dao> scrapSubmit(@Field("userid")int userid, @Field("fullname")String fullname,
                                           @Field("address")String address, @Field("areaid")int areaid,
                                           @Field("suggest")String suggest, @Field("caozuouserid")int caozuouserid,
-                                          @Field("caozuousertel")String caijiusertel,@Field("caozuousertype")int caozuousertype);
+                                          @Field("caozuousertel")String caijiusertel,@Field("caozuousertype")int caozuousertype,
+                                     @Field("image")String img);
 
 
     @FormUrlEncoded
@@ -130,4 +135,23 @@ public interface ApiService {
     Observable<CommonDao> sendSumbit(@Field("fromid")String fromid, @Field("gotoid")String gotoid,
                                     @Field("title")String title, @Field("content")String content);
 
+
+    @FormUrlEncoded
+    @POST("index.php/index/index/tongji")
+    Observable<ScanCount> getScanCount(@Field("id")String id);
+
+    @FormUrlEncoded
+    @POST("index.php/index/index/saomiao")
+    Observable<CommonDao> addScan(@Field("id")String id);
+
+    @FormUrlEncoded
+    @POST("index/index/jsaomiao")
+    Observable<ScanListDao> getScanList(@Field("streetid")String streetid, @Field("starttime")String starttime,
+                                        @Field("cunid")String cunid,
+                                        @Field("id")String id);
+
+
+    @FormUrlEncoded
+    @POST("index/index/cun")
+    Observable<CunListDao> getCunList(@Field("id")String id);
 }

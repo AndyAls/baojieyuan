@@ -78,6 +78,11 @@ public class AttendanceActivity extends BaseMvpActivity<AttendancePresenter> imp
     }
 
     @Override
+    protected boolean isSetFondSize() {
+        return true;
+    }
+
+    @Override
     public void initView() {
 
         String getWorkTime = SpUtils.getStringParam(this, WORK_TIME, "");
