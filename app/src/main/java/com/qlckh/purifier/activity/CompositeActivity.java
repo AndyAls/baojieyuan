@@ -122,7 +122,7 @@ public class CompositeActivity extends BaseMvpActivity<CompositePresenter> imple
         goBack();
         setTitle("综合评分");
         totalScore = categoryScore + bucketScore + putScore;
-        tvScore.setText(String.format(Locale.SIMPLIFIED_CHINESE,"%d", totalScore));
+        tvScore.setText(String.format(Locale.SIMPLIFIED_CHINESE, "%d", totalScore));
         addListener();
 
     }
@@ -219,7 +219,7 @@ public class CompositeActivity extends BaseMvpActivity<CompositePresenter> imple
     @Override
     public void finish() {
         super.finish();
-        overridePendingTransition(0,0);
+        overridePendingTransition(0, 0);
     }
 
     @Override
@@ -234,10 +234,8 @@ public class CompositeActivity extends BaseMvpActivity<CompositePresenter> imple
         Button btSumbit = findViewById(R.id.bt_submit);
         btSumbit.setOnClickListener(v -> {
             if (isDone) {
-                if (imgPath.length() > 0) {
-                    mPresenter.sumbit(homeDao, categoryScore, bucketScore, putScore, totalScore, userAddress, UserConfig.getUserName(),
-                            imgPath.substring(0, imgPath.length() - 1));
-                }
+                mPresenter.sumbit(homeDao, categoryScore, bucketScore, putScore, totalScore, userAddress, UserConfig.getUserName(),
+                        imgPath);
             } else {
                 showShort("等待图片上传,请稍后重试");
             }
@@ -398,6 +396,7 @@ public class CompositeActivity extends BaseMvpActivity<CompositePresenter> imple
         }
         PrePictureActivity.start(this, imgInfos, currentIndex);
     }
+
     private void doTask(File compress) {
 
         MyTask task = new MyTask(this);

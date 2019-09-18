@@ -124,7 +124,7 @@ public class SanitationActivity extends BaseMvpActivity<SanitationPresenter> imp
         goBack();
         setTitle("环境卫生");
         totalScore = envScore;
-        tvScore.setText(String.format(Locale.SIMPLIFIED_CHINESE,"%d", totalScore));
+        tvScore.setText(String.format(Locale.SIMPLIFIED_CHINESE, "%d", totalScore));
         addListener();
     }
 
@@ -160,7 +160,7 @@ public class SanitationActivity extends BaseMvpActivity<SanitationPresenter> imp
     @Override
     public void finish() {
         super.finish();
-        overridePendingTransition(0,0);
+        overridePendingTransition(0, 0);
     }
 
     private void updaScore() {
@@ -180,10 +180,8 @@ public class SanitationActivity extends BaseMvpActivity<SanitationPresenter> imp
         Button btSumbit = findViewById(R.id.bt_submit);
         btSumbit.setOnClickListener(v -> {
             if (isDone) {
-                if (imgPath.length() > 0) {
-                    mPresenter.sanitationSubmit(homeDao, envScore, userAddress, UserConfig.getUserName(),
-                            imgPath.substring(0, imgPath.length() - 1));
-                }
+                mPresenter.sanitationSubmit(homeDao, envScore, userAddress, UserConfig.getUserName(),
+                        imgPath);
 
             } else {
 
@@ -332,7 +330,7 @@ public class SanitationActivity extends BaseMvpActivity<SanitationPresenter> imp
         MyTask(Activity activity) {
 
             reference = new WeakReference<>(activity);
-         }
+        }
 
         @Override
         protected String doInBackground(File... files) {
@@ -348,7 +346,7 @@ public class SanitationActivity extends BaseMvpActivity<SanitationPresenter> imp
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             SanitationActivity activity = (SanitationActivity) reference.get();
-            if (activity==null||activity.isFinishing()){
+            if (activity == null || activity.isFinishing()) {
                 return;
             }
             activity.imgPath += s;
@@ -361,7 +359,7 @@ public class SanitationActivity extends BaseMvpActivity<SanitationPresenter> imp
         protected void onCancelled() {
             super.onCancelled();
             SanitationActivity activity = (SanitationActivity) reference.get();
-            if (activity==null||activity.isFinishing()){
+            if (activity == null || activity.isFinishing()) {
                 return;
             }
             activity.isDone = true;
@@ -371,7 +369,7 @@ public class SanitationActivity extends BaseMvpActivity<SanitationPresenter> imp
         protected void onPreExecute() {
             super.onPreExecute();
             SanitationActivity activity = (SanitationActivity) reference.get();
-            if (activity==null||activity.isFinishing()){
+            if (activity == null || activity.isFinishing()) {
                 return;
             }
             activity.isDone = false;

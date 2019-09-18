@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
+import com.lsh.packagelibrary.CasePackageApp;
 import com.qlckh.purifier.api.ApiService;
 import com.qlckh.purifier.common.GlideApp;
 import com.qlckh.purifier.common.LocationService;
@@ -21,7 +22,7 @@ import butterknife.ButterKnife;
  * @date 2018/5/14 11:28
  * Desc:
  */
-public class App extends MultiDexApplication {
+public class App extends CasePackageApp {
 
     private static final String APPKEY = "0420889e73";
     private static App app;
@@ -38,6 +39,7 @@ public class App extends MultiDexApplication {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
+        MultiDex.install(this);
         app = this;
         XLog.e("--", "attachBaseContext");
         init(base);

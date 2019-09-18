@@ -32,7 +32,7 @@
     </style>
 
     <style name="task_topBar_layout">
-        <item name="android:layout_height">@dimen/dp50</item>
+        <item name="android:layout_height">@dimen/dp48</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:background">@android:color/transparent</item>
     </style>

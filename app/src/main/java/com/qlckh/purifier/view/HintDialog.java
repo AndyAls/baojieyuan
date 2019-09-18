@@ -36,7 +36,7 @@ public class HintDialog {
     }
 
 
-    private static onDialogItemClickListener mListener;
+    private static OnDialogItemClickListener mListener;
 
     public static void showHintDialog(Activity context, String title, String content, String sureText,
                                       String cancleText, boolean ifCancleView, final OnDialogClickListener listener) {
@@ -94,7 +94,7 @@ public class HintDialog {
         dialog.show();
     }
 
-    public static void showListDialog(Activity context, String[] datas, onDialogItemClickListener listener) {
+    public static void showListDialog(Activity context, String[] datas, OnDialogItemClickListener listener) {
         final Dialog dialog = new Dialog(context);
         dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
@@ -139,7 +139,7 @@ public class HintDialog {
         dialog.show();
     }
 
-    public interface onDialogItemClickListener {
+    public interface OnDialogItemClickListener {
         void onItemClick(int position, String[] datas, View view);
     }
 }
